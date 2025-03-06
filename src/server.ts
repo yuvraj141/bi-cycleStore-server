@@ -17,3 +17,16 @@ try {
 
 }
 main()
+process.on('unhandledRejection',()=>{
+    console.log(`unhandledRejection detected.shutting down the server...`);
+    if(server){
+        server.close(()=>{
+            process.exit(1)
+        })
+    }
+    process.exit(1)
+})
+process.on('uncaughtException',()=>{
+    console.log(`uncaughtException detected.shutting down the server...`);
+    process.exit(1)
+})
