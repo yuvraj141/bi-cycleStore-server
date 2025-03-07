@@ -7,8 +7,15 @@ const registerUserIntoDB=async(payLoad:TUser)=>{
 
     return result
 }
-
+//block user
+const changeStatus=async(id:string,payLoad:{status:string})=>{
+    const result=await User.findByIdAndUpdate(id,payLoad,{
+        new:true
+    })
+    return result
+}
 
 export const UserServices={
-    registerUserIntoDB
+    registerUserIntoDB,
+    changeStatus
 }

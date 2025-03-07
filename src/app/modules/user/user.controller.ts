@@ -14,7 +14,18 @@ const registerUser=catchAsync(async(req,res)=>{
         data:result
     })
 })
-
+//change status
+const changeStatus=catchAsync(async(req,res)=>{
+    const id=req.params.id
+    const result=await UserServices.changeStatus(id,req.body)
+    sendResponse(res,{
+        statusCode:httpStatus.OK,
+        success:true,
+        message:'Status Updated Successfully',
+        data:result
+    })
+})
 export const UserControllers={
-    registerUser
+    registerUser,
+    changeStatus
 }

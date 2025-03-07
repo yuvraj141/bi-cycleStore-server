@@ -10,7 +10,13 @@ export const createUserValidationSchema=z.object({
     //     status:'active'|'inActive'
     })
 })
-
+//statusChange
+export const changeStatusValidationSchema=z.object({
+    body:z.object({
+   status:z.enum(['active','inActive'])
+    })
+})
 export const userValidations={
-  createUserValidationSchema
+  createUserValidationSchema,
+  changeStatusValidationSchema
 }
