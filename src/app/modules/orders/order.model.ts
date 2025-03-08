@@ -25,6 +25,7 @@ const orderSchema=new Schema<TOrder>({
     status:{
         type:String,
         enum:[ "pending","delivered", "cancelled"],
+        default:"pending",
         required:true,
        
     },   

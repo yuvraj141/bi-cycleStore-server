@@ -14,7 +14,12 @@ const changeStatus=async(id:string,payLoad:{status:string})=>{
     })
     return result
 }
+//create admin
+const createAdminIntoDB=async(payLoad:TUser)=>{
+    const result=await User.create(payLoad)
 
+    return result
+}
 export const UserServices={
     registerUserIntoDB,
     changeStatus
